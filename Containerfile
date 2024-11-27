@@ -62,6 +62,12 @@ RUN --mount=type=cache,dst=/var/cache/rpm-ostree \
 RUN --mount=type=cache,dst=/var/cache/rpm-ostree \
     rpm-ostree install \
         prismlauncher \
+        java-1.8.0-openjdk \
+        sdrpp \
+        vlc \
+
+## TODO: maybe eventually make the emulators function with the local versions instead of the stupid-ahh flatpaks?
+
 ## NOTES:
 # - /var/lib/alternatives is required to prevent failure with some RPM installs
 # - All RUN commands must end with ostree container commit
