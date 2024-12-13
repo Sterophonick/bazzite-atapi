@@ -67,6 +67,7 @@ RUN --mount=type=cache,dst=/var/cache/rpm-ostree \
         java-1.8.0-openjdk \
         sdrpp \
         vlc \
+        imhex \
 
 ## TODO: maybe eventually make the emulators function with the local versions instead of the stupid-ahh flatpaks?
 
