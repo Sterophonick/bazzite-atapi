@@ -68,6 +68,7 @@ RUN --mount=type=cache,dst=/var/cache/rpm-ostree \
         sdrpp \
         vlc \
         imhex \
+        scummvm \
 
 ## TODO: maybe eventually make the emulators function with the local versions instead of the stupid-ahh flatpaks?
 
