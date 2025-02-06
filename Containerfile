@@ -57,18 +57,16 @@ RUN mkdir -p /var/lib/alternatives && \
     ostree container commit
 
 # Add whatever coprs
-RUN --mount=type=cache,dst=/var/cache/rpm-ostree \
+#RUN --mount=type=cache,dst=/var/cache/rpm-ostree \
     curl -Lo /etc/yum.repos.d/_copr_getchoo-prismlauncher.repo https://copr.fedorainfracloud.org/coprs/g3tchoo/prismlauncher/repo/fedora-"${FEDORA_MAJOR_VERSION}"/g3tchoo-prismlauncher-fedora-"${FEDORA_MAJOR_VERSION}".repo
 
 # install extra packages
 RUN --mount=type=cache,dst=/var/cache/rpm-ostree \
     rpm-ostree install \
-        prismlauncher \
-        java-1.8.0-openjdk \
         sdrpp \
         vlc \
         imhex \
-        scummvm \
+        qsynth \
 
 ## TODO: maybe eventually make the emulators function with the local versions instead of the stupid-ahh flatpaks?
 
