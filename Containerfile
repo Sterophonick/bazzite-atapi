@@ -57,8 +57,7 @@ RUN mkdir -p /var/lib/alternatives && \
     ostree container commit
 
 # Add whatever coprs
-#RUN --mount=type=cache,dst=/var/cache/rpm-ostree \
-    curl -Lo /etc/yum.repos.d/_copr_getchoo-prismlauncher.repo https://copr.fedorainfracloud.org/coprs/g3tchoo/prismlauncher/repo/fedora-"${FEDORA_MAJOR_VERSION}"/g3tchoo-prismlauncher-fedora-"${FEDORA_MAJOR_VERSION}".repo
+# nobody here but us chickens!
 
 # install extra packages
 RUN --mount=type=cache,dst=/var/cache/rpm-ostree \
