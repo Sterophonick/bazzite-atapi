@@ -66,12 +66,13 @@ RUN --mount=type=cache,dst=/var/cache/rpm-ostree \
         vlc \
         imhex \
         qsynth \
-        konsole
+        konsole && \
+    ostree container commit
 
 # remove packages i don't want
-RUN --mount=type=cache,dst=/var/cache/rpm-ostree \
     rpm-ostree remove \
-        ptyxis
+        ptyxis && \
+    ostree container commit
 
 ## TODO: maybe eventually make the emulators function with the local versions instead of the stupid-ahh flatpaks?
 
