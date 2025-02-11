@@ -46,6 +46,8 @@ FROM ghcr.io/ublue-os/${SOURCE_IMAGE}${SOURCE_SUFFIX}:${SOURCE_TAG}
 ## make modifications desired in your image and install packages by modifying the build.sh script
 ## the following RUN directive does all the things required to run "build.sh" as recommended.
 
+ARG IMAGE_NAME_NEW="${IMAGE_NAME:-bazzite-atapi}"
+
 COPY build.sh /tmp/build.sh
 
 RUN mkdir -p /var/lib/alternatives && \
@@ -70,6 +72,12 @@ RUN --mount=type=cache,dst=/var/cache/rpm-ostree \
 RUN --mount=type=cache,dst=/var/cache/rpm-ostree \
     rpm-ostree override remove \
         ptyxis && \
+    ostree container commit
+
+# edit /etc/os-release
+RUN --mount=type=cache,dst=/var/cache/rpm-ostree \
+    sed -i "s/^VARIANT_ID=.*/VARIANT_ID=$IMAGE_NAME/" /usr/lib/os-release \
+    sed -i "s/\"image-name\":.*/\"image-name\": \"$IMAGE_NAME\",/" /usr/share/ublue-os/image-info.json && \
     ostree container commit
 
 ## TODO: maybe eventually make the emulators function with the local versions instead of the stupid-ahh flatpaks?
