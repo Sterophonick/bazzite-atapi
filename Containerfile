@@ -76,8 +76,8 @@ RUN --mount=type=cache,dst=/var/cache/rpm-ostree \
 
 # edit /etc/os-release
 RUN --mount=type=cache,dst=/var/cache/rpm-ostree \
-    sed -i "s/^VARIANT_ID=.*/VARIANT_ID=$IMAGE_NAME/" /usr/lib/os-release \
-    sed -i "s/\"image-name\":.*/\"image-name\": \"$IMAGE_NAME\",/" /usr/share/ublue-os/image-info.json && \
+    sed -i "s/VARIANT_ID=.*/VARIANT_ID=bazzite-atapi/" /usr/lib/os-release && \
+    sed -i "s/\"image-name\":.*/\"image-name\": \"bazzite-atapi\",/" /usr/share/ublue-os/image-info.json && \
     ostree container commit
 
 ## TODO: maybe eventually make the emulators function with the local versions instead of the stupid-ahh flatpaks?
