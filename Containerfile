@@ -66,6 +66,7 @@ RUN --mount=type=cache,dst=/var/cache/rpm-ostree \
         qsynth \
         obs-studio \
         qpwgraph \
+        execstack \
         konsole && \
     ostree container commit
 
