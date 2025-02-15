@@ -1,0 +1,8 @@
+#!/bin/bash
+wget --user $RETROROMS_USER --password $RETROROMS_PASS https://bda.retroroms.net/downloads/mame/update/$1.zip --no-check-certificate
+if [ $? ];
+then
+    wget --user $RETROROMS_USER --password $RETROROMS_PASS https://bda.retroroms.net/downloads/mame/currentroms/$1.zip --no-check-certificate
+fi
+
+
