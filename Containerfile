@@ -63,6 +63,8 @@ RUN --mount=type=cache,dst=/var/cache/rpm-ostree \
         qpwgraph \
         execstack \
         mame \
+        mame-tools \
+        mame-data-software-lists \
         neverball-neverball \
         neverball-neverputt \
         supertuxkart \
