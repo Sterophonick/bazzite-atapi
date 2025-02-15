@@ -52,18 +52,6 @@ RUN mkdir -p /var/lib/alternatives && \
     /tmp/build.sh && \
     ostree container commit
 
-# Add whatever repos
-RUN --mount=type=cache,dst=/var/cache/rpm-ostree \
-    rpm-ostree install \
-        fedora-repos-rawhide && \
-    ostree container commit
-
-# install extra (repo) packages
-RUN --mount=type=cache,dst=/var/cache/rpm-ostree \
-    rpm-ostree install \
-        dolphin-emu --enablerepo=rawhide && \
-    ostree container commit
-
 # install extra (normal) packages
 RUN --mount=type=cache,dst=/var/cache/rpm-ostree \
     rpm-ostree install \
@@ -75,6 +63,11 @@ RUN --mount=type=cache,dst=/var/cache/rpm-ostree \
         qpwgraph \
         execstack \
         mame \
+        neverball-neverball \
+        neverball-neverputt \
+        supertuxkart \
+        tuxpaint \
+        xonotic \
         konsole && \
     ostree container commit
 
