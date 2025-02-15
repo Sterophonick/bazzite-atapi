@@ -54,13 +54,13 @@ RUN mkdir -p /var/lib/alternatives && \
 
 # Add whatever repos
 RUN --mount=type=cache,dst=/var/cache/rpm-ostree \
-    curl -Lo /etc/yum.repos.d/_fedora_rawhide.repo https://nocix.mm.fcix.net/fedora/linux/development/rawhide/Everything/x86_64/os/media.repo && \
+    curl -Lo /etc/yum.repos.d/rawhide.repo https://nocix.mm.fcix.net/fedora/linux/development/rawhide/Everything/x86_64/os/media.repo && \
     ostree container commit
 
-# install extra (normal) packages
+# install extra (repo) packages
 RUN --mount=type=cache,dst=/var/cache/rpm-ostree \
     rpm-ostree install \
-        dolphin-emu --enablerepo= _fedora_rawhide && \
+        dolphin-emu --enablerepo=rawhide && \
     ostree container commit
 
 # install extra (normal) packages
@@ -73,6 +73,7 @@ RUN --mount=type=cache,dst=/var/cache/rpm-ostree \
         obs-studio \
         qpwgraph \
         execstack \
+        mame \
         konsole && \
     ostree container commit
 
