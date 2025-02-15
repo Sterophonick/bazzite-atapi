@@ -54,7 +54,8 @@ RUN mkdir -p /var/lib/alternatives && \
 
 # Add whatever repos
 RUN --mount=type=cache,dst=/var/cache/rpm-ostree \
-    curl -Lo /etc/yum.repos.d/rawhide.repo https://nocix.mm.fcix.net/fedora/linux/development/rawhide/Everything/x86_64/os/media.repo && \
+    rpm-ostree install \
+        fedora-repos-rawhide && \
     ostree container commit
 
 # install extra (repo) packages
