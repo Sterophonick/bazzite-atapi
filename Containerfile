@@ -36,7 +36,7 @@ ARG SOURCE_IMAGE="bazzite"
 ARG SOURCE_SUFFIX="-deck"
 
 ## SOURCE_TAG arg must be a version built for the specific image: eg, 39, 40, gts, latest
-ARG SOURCE_TAG="testing"
+ARG SOURCE_TAG="stable"
 
 ### 2. SOURCE IMAGE
 ## this is a standard Containerfile FROM using the build ARGs above to select the right upstream image
@@ -46,18 +46,24 @@ FROM ghcr.io/ublue-os/${SOURCE_IMAGE}${SOURCE_SUFFIX}:${SOURCE_TAG}
 ## make modifications desired in your image and install packages by modifying the build.sh script
 ## the following RUN directive does all the things required to run "build.sh" as recommended.
 
-ARG IMAGE_NAME_NEW="${IMAGE_NAME:-bazzite-atapi}"
-
 COPY build.sh /tmp/build.sh
 
 RUN mkdir -p /var/lib/alternatives && \
     /tmp/build.sh && \
     ostree container commit
 
-# Add whatever coprs
-# nobody here but us chickens!
+# Add whatever repos
+RUN --mount=type=cache,dst=/var/cache/rpm-ostree \
+    curl -Lo /etc/yum.repos.d/_fedora_rawhide.repo https://nocix.mm.fcix.net/fedora/linux/development/rawhide/Everything/x86_64/os/media.repo && \
+    ostree container commit
 
-# install extra packages
+# install extra (normal) packages
+RUN --mount=type=cache,dst=/var/cache/rpm-ostree \
+    rpm-ostree install \
+        dolphin-emu --enablerepo= _fedora_rawhide && \
+    ostree container commit
+
+# install extra (normal) packages
 RUN --mount=type=cache,dst=/var/cache/rpm-ostree \
     rpm-ostree install \
         sdrpp \
