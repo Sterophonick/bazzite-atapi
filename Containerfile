@@ -83,6 +83,7 @@ RUN --mount=type=cache,dst=/var/cache/rpm-ostree \
         supertuxkart \
         tuxpaint \
         xonotic \
+        retroarch \
         konsole && \
     ostree container commit
 
