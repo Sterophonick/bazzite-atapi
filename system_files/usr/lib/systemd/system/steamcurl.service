@@ -1,0 +1,12 @@
+[Unit]
+Description=Steam cURL Library Fixer Service for Flatpaks.
+After=network-online.target
+
+[Service]
+Type=oneshot
+# ExecStart=rm /home/deck/.steam/steam/ubuntu12_32/steam-runtime/pinned_libs_32/libcurl.so.4
+ExecStart=ln -sf /lib64/libcurl.so.4 /home/deck/.steam/steam/ubuntu12_32/steam-runtime/pinned_libs_32/libcurl.so.4
+# note that bazzite always symlinks the currently signed in user to the "deck" folder
+
+[Install]
+WantedBy=default.target
