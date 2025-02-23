@@ -84,6 +84,7 @@ RUN --mount=type=cache,dst=/var/cache/rpm-ostree \
         tuxpaint \
         xonotic \
         retroarch \
+        kchmviewer \
         konsole && \
     ostree container commit
 
