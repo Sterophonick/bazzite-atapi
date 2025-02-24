@@ -1,0 +1,11 @@
+#!/bin/bash
+
+if [ -z "$1" ]
+    then
+        echo "get-mame-chd <system> <chd filename no ext>"
+        exit 0
+fi
+
+wget --user $RETROROMS_USER --password $RETROROMS_PASS https://bda.retroroms.net/downloads/mame/CHDs/$1/$2.chd --no-check-certificate
+
+
