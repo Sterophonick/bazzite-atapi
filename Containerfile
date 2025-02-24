@@ -86,6 +86,7 @@ RUN --mount=type=cache,dst=/var/cache/rpm-ostree \
         retroarch \
         kchmviewer \
         krdp \
+        pam-kwallet \
         konsole && \
     ostree container commit
 
