@@ -85,6 +85,7 @@ RUN --mount=type=cache,dst=/var/cache/rpm-ostree \
         xonotic \
         retroarch \
         kchmviewer \
+        krdp \
         konsole && \
     ostree container commit
 
