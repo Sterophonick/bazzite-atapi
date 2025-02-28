@@ -96,6 +96,7 @@ RUN --mount=type=cache,dst=/var/cache/rpm-ostree \
 # remove packages i don't want
 RUN --mount=type=cache,dst=/var/cache/rpm-ostree \
     rpm-ostree override remove \
+        filelight \
         ptyxis && \
     ostree container commit
 
