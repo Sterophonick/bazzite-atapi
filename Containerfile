@@ -87,6 +87,9 @@ RUN --mount=type=cache,dst=/var/cache/rpm-ostree \
         kchmviewer \
         krdp \
         pam-kwallet \
+        gparted \
+        qdirstat \
+        cpu-x \
         konsole && \
     ostree container commit
 
