@@ -100,6 +100,13 @@ RUN --mount=type=cache,dst=/var/cache/rpm-ostree \
         ptyxis && \
     ostree container commit
 
+# install extract-xiso
+RUN --mount=type=cache,dst=/var/cache/rpm-ostree \
+    wget https://github.com/XboxDev/extract-xiso/releases/download/build-202501282328/extract-xiso_Linux.zip -O /tmp/xiso.zip && \
+    unzip /tmp/xiso.zip -d /usr/bin && \
+    rm /usr/bin/LICENSE.txt && \
+    ostree container commit
+
 # edit /etc/os-release
 RUN --mount=type=cache,dst=/var/cache/rpm-ostree \
     sed -i "s/VARIANT_ID=.*/VARIANT_ID=bazzite-atapi/" /usr/lib/os-release && \
