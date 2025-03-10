@@ -104,7 +104,7 @@ RUN --mount=type=cache,dst=/var/cache/rpm-ostree \
 RUN --mount=type=cache,dst=/var/cache/rpm-ostree \
     wget https://github.com/XboxDev/extract-xiso/releases/download/build-202501282328/extract-xiso_Linux.zip -O /tmp/xiso.zip && \
     unzip /tmp/xiso.zip -d /usr/bin && \
-    rm /usr/bin/LICENSE.txt && \
+    rm /usr/bin/LICENSE.TXT && \
     ostree container commit
 
 # edit /etc/os-release
