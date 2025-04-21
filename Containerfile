@@ -57,11 +57,6 @@ RUN mkdir -p /var/lib/alternatives && \
 
 # repos and coprs
 
-RUN --mount=type=cache,dst=/var/cache/rpm-ostree \
-    rpm-ostree install \
-        RMG && \
-    ostree container commit
-
 # install extra (normal) packages
 RUN --mount=type=cache,dst=/var/cache/rpm-ostree \
     rpm-ostree install \
