@@ -56,7 +56,7 @@ RUN mkdir -p /var/lib/alternatives && \
     ostree container commit
 
 # repos and coprs
-RUN --mount=type=cache,dst=/var/cache/rpm-ostree \
+#RUN --mount=type=cache,dst=/var/cache/rpm-ostree \
     curl -Lo /etc/yum.repos.d/_copr_rmg.repo https://copr.fedorainfracloud.org/coprs/rosalie/RMG/repo/fedora-"${FEDORA_MAJOR_VERSION}"/rosalie-RMG-fedora-"${FEDORA_MAJOR_VERSION}".repo && \
     ostree container commit
 
