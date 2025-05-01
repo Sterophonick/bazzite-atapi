@@ -75,7 +75,6 @@ RUN --mount=type=cache,dst=/var/cache/rpm-ostree \
         supertuxkart \
         tuxpaint \
         xonotic \
-        retroarch \
         kchmviewer \
         krdp \
         pam-kwallet \
