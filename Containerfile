@@ -80,6 +80,7 @@ RUN --mount=type=cache,dst=/var/cache/rpm-ostree \
         pam-kwallet \
         gparted \
         qdirstat \
+        python3-tkinter \
         cpu-x \
         konsole && \
     ostree container commit
