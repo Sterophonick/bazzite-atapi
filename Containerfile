@@ -78,7 +78,7 @@ RUN --mount=type=cache,dst=/var/cache/rpm-ostree \
         kchmviewer \
         krdp \
         pam-kwallet \
-        kde-partitonmanager \
+        kde-partitionmanager \
         qdirstat \
         python3-tkinter \
         cpu-x \
