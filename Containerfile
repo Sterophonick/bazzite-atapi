@@ -78,10 +78,14 @@ RUN --mount=type=cache,dst=/var/cache/rpm-ostree \
         kchmviewer \
         krdp \
         pam-kwallet \
-        gparted \
+        kde-partitonmanager \
         qdirstat \
         python3-tkinter \
         cpu-x \
+        retroarch \
+        ppsspp-sdl \
+        ppsspp-data \
+        ppsspp-libs \
         konsole && \
     ostree container commit
 
